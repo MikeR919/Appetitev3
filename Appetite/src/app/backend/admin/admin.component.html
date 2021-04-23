@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Perfíl</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openMenu()">
+          <ion-icon name="menu-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+    <ion-avatar class="avatar">
+      <img src="https://th.bing.com/th/id/OIP.9bzQEDTOfnOikdC_3wJiPQHaFj?w=201&h=180&c=7&o=5&dpr=1.1&pid=1.7">
+    </ion-avatar>
+    <ion-label class="nombre">Miguel Ruvalcaba</ion-label>
+    <ion-button expand="block" color="danger" class="boton">Cerrar sesión</ion-button>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content>
+  <h1 class="titulo">Appetite</h1>
+
+  <p class="subtitulo">Busca tu destino, Sacia tu apetito</p>
+
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Dirección</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Horario de apertura</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Días de apertura</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Foto</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon name="images-outline" class="icono"></ion-icon>
+        </label>
+        <input id="file-upload" style="display: none;" type="file" accept="images/*">
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Ubicación</ion-label>
+  </ion-item>
+
+  <!--<ion-item>
+    <ion-label position="stacked">Ubicación</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="location-outline" style="color:#ffa500;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>-->
+
+  <ion-button expand="block" color="danger" class="boton">Crear local</ion-button>
+
+  <hr>
+
+  <ion-list-header>
+    <ion-label>Locales sugeridos</ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-item >
+      <div class="card" style="width: 18rem;">
+        <img src="https://firebasestorage.googleapis.com/v0/b/appetite-38a99.appspot.com/o/locales%2F%20CRACK%20CRACK?alt=media&token=e2574c5d-2ed3-4dad-b45e-8bac9513b3fd" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Restaurante de postres</h6>
+          <h5 class="card-title">CRACK CRACK</h5>
+          <h6 class="card-subtitle mb-2 text-muted">L-D / 10:30-21:00</h6>
+          <p class="card-text">Av. Adolfo López Mateos Sur 2375, Plaza del Sol, 45050 Zapopan, Jal.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle-outline" color="success"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <br>
+
+
+
+</ion-content>
