@@ -4,14 +4,14 @@
 <ion-content>
   
 
-  <ion-item >
+  <ion-item *ngFor="let local of locales ">
     <div class="card" style="width: aut">
-      <img src="https://firebasestorage.googleapis.com/v0/b/appetite-38a99.appspot.com/o/locales%2F%20CRACK%20CRACK?alt=media&token=e2574c5d-2ed3-4dad-b45e-8bac9513b3fd" class="card-img-top" alt="...">
+      <!--<img src="{{local.imagen}}" class="card-img-top" alt="...">-->
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">Restaurante de postres</h6>
-        <h5 class="card-title">CRACK CRACK</h5>
-        <h6 class="card-subtitle mb-2 text-muted">L-D / 10:30-21:00</h6>
-        <p class="card-text">Av. Adolfo López Mateos Sur 2375, Plaza del Sol, 45050 Zapopan, Jal.</p>
+        <h6 class="card-subtitle mb-2 text-muted">{{local.Descripcion}}</h6>
+        <h5 class="card-title">{{local.Nombre}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{local.OpenDays}} / {{local.openHours}}</h6>
+        <p class="card-text">{{local.Direccion}}</p>
         <ion-buttons slot="end">
           <ion-button>
             <ion-icon slot="icon-only" name="heart-outline"></ion-icon>

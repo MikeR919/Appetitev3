@@ -1,35 +1,36 @@
+<br>
+<br>
+
 <ion-content>
-  <br>
-  <br>
   <h1 class="titulo">Appetite</h1>
 
   <p class="subtitulo">Busca tu destino, Sacia tu apetito</p>
 
   <ion-item>
     <ion-label position="stacked">Nombre</ion-label>
-    
+    <ion-input [(ngModel)]="nuevaSugerencia.Nombre"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Descripción</ion-label>
-    
+    <ion-input [(ngModel)]="nuevaSugerencia.Descripcion"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Dirección</ion-label>
-    
+    <ion-input [(ngModel)]="nuevaSugerencia.Direccion"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Horario de apertura</ion-label>
-    
+    <ion-input [(ngModel)]="nuevaSugerencia.openHours"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Días de apertura</ion-label>
-    
+    <ion-input [(ngModel)]="nuevaSugerencia.OpenDays" placeholder="L-V"></ion-input>
   </ion-item>
 
-  <ion-button expand="block" color="danger" class="boton">Crear sugerencia</ion-button>
+  <ion-button expand="block" color="danger" class="boton" (click)="crearSugerencia()">crear sugerencia</ion-button>
 
 </ion-content>

@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    FormsModule
   ]
 })
 export class BackendModule { }
