@@ -20,12 +20,12 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content *ngIf="user$ | async as user">
     <ion-avatar class="avatar">
-      <img src="https://th.bing.com/th/id/OIP.9bzQEDTOfnOikdC_3wJiPQHaFj?w=201&h=180&c=7&o=5&dpr=1.1&pid=1.7">
+      <img src="{{user.photoURL}}">
     </ion-avatar>
-    <ion-label class="nombre">Miguel Ruvalcaba</ion-label>
-    <ion-button expand="block" color="danger" class="boton">Cerrar sesión</ion-button>
+    <ion-label class="nombre">{{user.displayName}}</ion-label>
+    <ion-button expand="block" color="danger" class="boton" (click)="logOut()">Cerrar sesión</ion-button>
   </ion-content>
 </ion-menu>
 <ion-router-outlet id="main"></ion-router-outlet>

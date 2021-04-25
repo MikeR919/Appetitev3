@@ -1,9 +1,12 @@
 import { FirestoreService } from './../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { Local, Sugerencia } from 'src/app/models';
+import { Local, Sugerencia, User } from 'src/app/models';
 import { AlertController, ToastController, LoadingController  } from '@ionic/angular';
 import { FirestorageService } from 'src/app/services/firestorage.service';
+import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -11,6 +14,9 @@ import { FirestorageService } from 'src/app/services/firestorage.service';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
+
+  user$: Observable<User>=this.authSvc.auth.user;
+  user:User;
 
   sugerencias: Sugerencia[] = [];
   nuevoLocal: Local = {
@@ -36,10 +42,24 @@ export class AdminComponent implements OnInit {
     public toastController: ToastController,
     public loadingController: LoadingController,
     private storageService: FirestorageService,
-    ) { } 
+    public authSvc:FirebaseauthService,
+    private router: Router
+    ) { 
+      this.authSvc.stateAuth().subscribe(res=>{
+        if(res === null){
+          this.router.navigate(['home']);
+          
+        }else{
+          if (res.uid != 'xqdLNQILCaeJ6NQaaGrfb11FErd2') {
+            this.router.navigate(['tabs']);
+          }
+        }
+        console.log("usuario activo->",res.uid);
+      });
+  
+    } 
 
-  ngOnInit() {
-    this.getSugerencias();
+  ngOnInit() { 
   }
 
   openMenu() {
@@ -132,6 +152,18 @@ export class AdminComponent implements OnInit {
     await this.loading.present();
     //await loading.onDidDismiss();
     //console.log('Loading dismissed!');
+  }
+
+  async logOut(){
+    await this.authSvc.logout();
+    this.router.navigate(['home']);
+  }
+
+  getUserInfo(uid:string){
+    const path ='users';
+    this.database.getDoc(path,uid).subscribe(res =>{
+      console.log(res);
+    });
   }
   
 }

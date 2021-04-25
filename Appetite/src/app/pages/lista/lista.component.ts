@@ -28,11 +28,24 @@ export class ListaComponent implements OnInit {
     });
   }
 
-  async presentModal() {
+  /*async presentModal() {
     console.log('estoy dando click');
     const modal = await this.modalController.create({
       component: ComentariosComponent,
       cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }*/
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ComentariosComponent,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'firstName': '',
+        'lastName': 'Adams',
+        'middleInitial': 'N'
+      }
     });
     return await modal.present();
   }
