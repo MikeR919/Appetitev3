@@ -1,0 +1,55 @@
+<!--<ion-item>
+    <div class="card">
+      <img src="{{local.imagen}}" class="card-img-top" alt="...">
+      
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">{{local.Descripcion}}</h6>
+        <h5 class="card-title">{{local.Nombre}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{local.OpenDays}} / {{local.openHours}}</h6>
+        <p class="card-text">{{local.Direccion}}</p>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="presentModal()">
+            <ion-icon slot="icon-only" name="chatbox-ellipses-outline" ></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </ion-item>-->
+
+  <ion-card>
+    <ion-img class="imagen" [src]="local.imagen"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{local.Descripcion}}</ion-card-subtitle>
+      <ion-card-title>{{local.Nombre}}</ion-card-title>
+      <ion-card-subtitle>{{local.OpenDays}} / {{local.openHours}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{local.Direccion}}
+    </ion-card-content>
+    <div>
+      <div class="comentario">
+        <ion-card-content class="comentarios" (click)="presentModal()">
+          <ion-icon slot="icon-only" name="chatbox-ellipses-outline"></ion-icon>
+        </ion-card-content>
+      </div>
+      <div class="like">
+        <ion-card-content class="comentarios">
+          <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+        </ion-card-content>
+      </div>
+    </div>
+    
+    
+    <!--<ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="chatbox-ellipses-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+  </ion-card>
+  

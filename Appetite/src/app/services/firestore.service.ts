@@ -37,4 +37,26 @@ export class FirestoreService {
      return collection.valueChanges();
    }
 
+   getCollectionAll<tipo>(path, parametro:string,condicion:any,busqueda:string,startAt:any){
+     if(startAt==null){
+       startAt=new Date();
+     }
+     const collection =this.database.collectionGroup<tipo>(path,ref => ref.where(parametro,condicion,busqueda)
+     .orderBy('fecha','desc')
+     .limit(1)
+     .startAfter(startAt)
+     );
+   }
+
+   getCollectionPaginada<tipo>(path: string, limit:number, startAt:any){
+    /*if(startAt==null){
+      startAt=new Date();
+    }*/
+    const collection =this.database.collection<tipo>(path, ref => ref
+    .orderBy('fecha','desc')
+    .limit(limit)
+    .startAfter(startAt)
+    );
+  }
+
 }

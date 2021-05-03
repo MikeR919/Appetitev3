@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
         console.log('No has inicido sesión')
         
       }else{
-        if (res.uid != 'xqdLNQILCaeJ6NQaaGrfb11FErd2') {
+        if (res.uid === 'xqdLNQILCaeJ6NQaaGrfb11FErd2') {
           this.router.navigate(['admin']);
         }
         else{

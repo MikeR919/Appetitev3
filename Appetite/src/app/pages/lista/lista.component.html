@@ -2,26 +2,7 @@
 <br>
 
 <ion-content>
-  
-
-  <ion-item *ngFor="let local of locales ">
-    <div class="card" style="width: aut">
-      <!--<img src="{{local.imagen}}" class="card-img-top" alt="...">-->
-      <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">{{local.Descripcion}}</h6>
-        <h5 class="card-title">{{local.Nombre}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{local.OpenDays}} / {{local.openHours}}</h6>
-        <p class="card-text">{{local.Direccion}}</p>
-        <ion-buttons slot="end">
-          <ion-button>
-            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
-          </ion-button>
-          <ion-button (click)="presentModal()">
-            <ion-icon slot="icon-only" name="chatbox-ellipses-outline" ></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
-    </div>
-  </ion-item>
-
+  <div *ngFor="let local of locales">
+    <app-locales [local]=local ></app-locales>
+  </div>
 </ion-content>

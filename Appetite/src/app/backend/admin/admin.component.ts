@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
   user:User;
 
   sugerencias: Sugerencia[] = [];
+
   nuevoLocal: Local = {
     Nombre: '',
     Descripcion: '',
@@ -60,6 +61,8 @@ export class AdminComponent implements OnInit {
     } 
 
   ngOnInit() { 
+
+    this.getSugerencias();
   }
 
   openMenu() {
@@ -100,9 +103,12 @@ export class AdminComponent implements OnInit {
   }
 
   getSugerencias() {
+    try{
     this.database.getCollection<Sugerencia>(this.pathsug).subscribe(res => {
       this.sugerencias = res;
-    });
+    });}catch(error){
+      console.log('error->', error);
+    }
   }
 
   async eliminarSugerencia(oportunidad: Sugerencia) {

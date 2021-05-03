@@ -1,3 +1,4 @@
+import { ComponentesModule } from './../componentes/componentes.module';
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { SugerirComponent } from './sugerir/sugerir.component';
 import { MapaComponent } from './mapa/mapa.component';
@@ -22,6 +23,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     IonicModule,
+    FormsModule,
+    ComponentesModule,
     FormsModule
   ],
   entryComponents:[

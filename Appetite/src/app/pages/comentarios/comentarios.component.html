@@ -1,30 +1,50 @@
 <ion-list>
-  <ion-item >
+  <ion-item>
     <ion-thumbnail slot="start">
-      <img src="s" class="card-img-top" alt="...">
+      <img src="{{local.imagen}}" class="card-img-top" alt="...">
     </ion-thumbnail>
-    <ion-label>CRACK CRACK</ion-label>
-    <ion-label>99 Likes / 99 Reseñas</ion-label>
+    <ion-label>{{local.Nombre}}</ion-label>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="close-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-item>
-
-  <ion-list>
-    <ion-list-header>Item Avatars</ion-list-header>
-
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-      </ion-avatar>
-      <ion-label>
-        <h3>Miguel Ruvalcaba</h3>
-        <p>Me gustó el local. está buenisimo!!</p>
-      </ion-label>
-    </ion-item>
-
-  </ion-list>
 </ion-list>
+
+
+
+<ion-list>
+  <ion-item *ngFor="let comment of comentarios">
+    <ion-avatar slot="start">
+      <img src="{{comment.foto}}">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{comment.autor}}</h3>
+      <p>{{comment.comentario}}</p>
+      <p>{{comment.fecha.seconds*1000 |date :'medium'}}</p>
+    </ion-label>
+  </ion-item>
+
+</ion-list>
+
+
+
+
+<ion-footer>
+  <ion-item *ngIf="user$ | async as user">
+    <ion-avatar slot="start">
+      <img src="{{user.photoURL}}">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{user.displayName}}</h3>
+    </ion-label>
+    <ion-textarea [(ngModel)]="comentario"  placeholder="Inserta un cometario Público"></ion-textarea>
+    <ion-buttons slot="end">
+      <ion-button (click)="comentar()">
+        <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+</ion-footer>
