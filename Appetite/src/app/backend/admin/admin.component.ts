@@ -29,6 +29,7 @@ export class AdminComponent implements OnInit {
     imagen: '',
     //ubicacion: '',
     id:'',
+    likes: null,
     //id: this.database.getId(),
     fechaCreacion: new Date()
   };

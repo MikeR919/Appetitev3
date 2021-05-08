@@ -16,6 +16,7 @@ export class SugerirComponent implements OnInit {
     Direccion: '',
     openHours: '',
     OpenDays: '',
+    likes:['tyuio'],
     id: this.database.getId(),
     fechaCreacion: new Date()
   };

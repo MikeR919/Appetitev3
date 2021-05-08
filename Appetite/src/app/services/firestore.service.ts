@@ -42,7 +42,7 @@ export class FirestoreService {
        startAt=new Date();
      }
      const collection =this.database.collectionGroup<tipo>(path,ref => ref.where(parametro,condicion,busqueda)
-     .orderBy('fecha','desc')
+     .orderBy('fecha','asc')
      .limit(1)
      .startAfter(startAt)
      );
@@ -53,7 +53,7 @@ export class FirestoreService {
       startAt=new Date();
     }*/
     const collection =this.database.collection<tipo>(path, ref => ref
-    .orderBy('fecha','desc')
+    .orderBy('fecha','asc')
     .limit(limit)
     .startAfter(startAt)
     );
