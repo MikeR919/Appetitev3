@@ -19,6 +19,7 @@ export class ListaComponent implements OnInit {
     public database:FirestoreService,) { }
 
   ngOnInit() {
+    //this.getLocales();
     this.getLocales();
   }
 

@@ -17,16 +17,18 @@ import { User } from 'src/app/models';
 export class LocalesComponent implements OnInit {
 
   @Input() local: Local;
+  idlocal='';
 
   constructor(public modalController: ModalController,
     public authSvc: FirebaseauthService,
     public firebase: FirestoreService) {
-      this.toogle();
-     }
+    }
 
   user: User;
   autor = '';
   idUser = '';
+  
+  tooglehearth:string;
 
   async ngOnInit() {
     this.authSvc.stateAuth().subscribe(res => {
@@ -34,9 +36,19 @@ export class LocalesComponent implements OnInit {
         this.autor = res.displayName;
         this.idUser = res.uid;
       }
+      const corazon = this.local.likes.indexOf(this.idUser);
+    if (corazon == -1) {
+      this.tooglehearth="heart-outline"
+    }
+    else {
+      this.tooglehearth="heart"
+    }
     });
 
+    
   }
+
+  
 
   async presentModal() {
     const modal = await this.modalController.create({
@@ -47,18 +59,6 @@ export class LocalesComponent implements OnInit {
     return await modal.present();
   }
 
-  toogle(){
-    let booleano;
-    const corazon = this.local.likes.indexOf(this.idUser);
-    if (corazon == -1) {
-      booleano=true;
-    }
-    else {
-      booleano=false;
-    }
-
-    return booleano;
-  }
 
 
   toogleLike() {
