@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
     openHours: '',
     OpenDays: '',
     imagen: '',
-    //ubicacion: '',
+    ubicacion: '',
     id:'',
     likes: null,
     //id: this.database.getId(),

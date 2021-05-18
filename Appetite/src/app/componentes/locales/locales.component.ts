@@ -1,4 +1,3 @@
-
 import { Component, Input, OnInit } from '@angular/core';
 import { Local } from 'src/app/models';
 import { ModalController } from '@ionic/angular';
@@ -6,6 +5,7 @@ import { ComentariosComponent } from 'src/app/pages/comentarios/comentarios.comp
 import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { User } from 'src/app/models';
+import { MapaComponent } from 'src/app/pages/mapa/mapa.component';
 
 
 
@@ -22,6 +22,7 @@ export class LocalesComponent implements OnInit {
   constructor(public modalController: ModalController,
     public authSvc: FirebaseauthService,
     public firebase: FirestoreService) {
+      
     }
 
   user: User;
@@ -44,8 +45,6 @@ export class LocalesComponent implements OnInit {
       this.tooglehearth="heart"
     }
     });
-
-    
   }
 
   
@@ -53,6 +52,15 @@ export class LocalesComponent implements OnInit {
   async presentModal() {
     const modal = await this.modalController.create({
       component: ComentariosComponent,
+      cssClass: 'my-custom-class',
+      componentProps: { local: this.local }
+    });
+    return await modal.present();
+  }
+
+  async mapa() {
+    const modal = await this.modalController.create({
+      component: MapaComponent,
       cssClass: 'my-custom-class',
       componentProps: { local: this.local }
     });

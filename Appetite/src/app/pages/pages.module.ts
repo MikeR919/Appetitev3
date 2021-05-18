@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -17,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     ListaComponent,
     MapaComponent,
     SugerirComponent,
-    ComentariosComponent
+    ComentariosComponent,
     
   ],
   imports: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     IonicModule,
     FormsModule,
     ComponentesModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ],
   entryComponents:[
     ComentariosComponent

@@ -6,7 +6,7 @@ export interface Local {
     openHours: string;
     OpenDays: string;
     imagen: string;
-    //ubicacion: any;
+    ubicacion:any;
     likes: string [];
     id: string;
     fechaCreacion: Date;

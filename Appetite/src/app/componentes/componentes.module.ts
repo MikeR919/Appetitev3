@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocalesComponent } from './locales/locales.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -14,6 +15,7 @@ import { LocalesComponent } from './locales/locales.component';
     CommonModule,
     IonicModule,
     RouterModule,
+    GoogleMapsModule
   ], exports:[
     LocalesComponent
 ]
