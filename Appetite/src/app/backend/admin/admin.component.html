@@ -75,16 +75,19 @@
 
   <ion-item>
     <ion-label position="stacked">Ubicación</ion-label>
-  </ion-item>
-
-  <!--<ion-item>
-    <ion-label position="stacked">Ubicación</ion-label>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="location-outline" style="color:#ffa500;"></ion-icon>
+      <ion-button (click)="getUserPosition()">
+        <ion-icon name="location-outline" class="icono"></ion-icon>
       </ion-button>
+      <ion-label>
+        {{latitud}}
+      </ion-label>
+      <ion-label>
+        {{longitud}}
+      </ion-label>
     </ion-buttons>
-  </ion-item>-->
+
+  </ion-item>
 
   <ion-button expand="block" color="danger" class="boton" (click)="crearlocal()">Crear local</ion-button>
 

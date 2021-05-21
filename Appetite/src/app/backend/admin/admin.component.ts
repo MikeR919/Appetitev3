@@ -1,3 +1,4 @@
+import { Geolocation } from '@capacitor/core';
 import { FirestoreService } from './../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
@@ -18,6 +19,9 @@ export class AdminComponent implements OnInit {
   user$: Observable<User>=this.authSvc.auth.user;
   user:User;
 
+  latitud:number;
+  longitud:number;
+
   sugerencias: Sugerencia[] = [];
 
   nuevoLocal: Local = {
@@ -27,7 +31,10 @@ export class AdminComponent implements OnInit {
     openHours: '',
     OpenDays: '',
     imagen: '',
-    ubicacion: '',
+    ubicacion: {
+      lat:null,
+      lng:null
+    },
     id:'',
     likes: null,
     //id: this.database.getId(),
@@ -77,6 +84,9 @@ export class AdminComponent implements OnInit {
     const res = await this.storageService.uploadImage(this.newFile, path, name);
     this.nuevoLocal.imagen = res;
     //this.crearlocal();
+    const coords=await Geolocation.getCurrentPosition();
+    this.nuevoLocal.ubicacion.lat=coords.coords.latitude;
+    this.nuevoLocal.ubicacion.lng=coords.coords.longitude;
     this.database.createDoc(this.nuevoLocal, this.path, this.nuevoLocal.id).then(res => {
       this.loading.dismiss();
       this.presentToast('Se ha crado con éxito');
@@ -171,6 +181,12 @@ export class AdminComponent implements OnInit {
     this.database.getDoc(path,uid).subscribe(res =>{
       console.log(res);
     });
+  }
+
+  async getUserPosition(){
+    const coords=await Geolocation.getCurrentPosition();
+    this.latitud=coords.coords.latitude;
+    this.longitud=coords.coords.longitude;
   }
   
 }

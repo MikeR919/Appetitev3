@@ -16,19 +16,19 @@ export class HomeComponent implements OnInit {
     private router: Router) {}
 
   async ngOnInit() {
-    // this.authSvc.stateAuth().subscribe(res=>{
-    //   if(res === null){
-    //     console.log('No has inicido sesión')
+    this.authSvc.stateAuth().subscribe(res=>{
+      if(res === null){
+        console.log('No has inicido sesión')
         
-    //   }else{
-    //     if (res.uid === 'xqdLNQILCaeJ6NQaaGrfb11FErd2') {
-    //       this.router.navigate(['admin']);
-    //     }
-    //     else{
-    //       this.router.navigate(['tabs/lista']);
-    //     }
-    //   }
-    // });
+      }else{
+        if (res.uid === 'xqdLNQILCaeJ6NQaaGrfb11FErd2') {
+          this.router.navigate(['admin']);
+        }
+        else{
+          this.router.navigate(['tabs/lista']);
+        }
+      }
+    });
   }
 
   async onLoginGoogle(){
@@ -45,20 +45,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  async testMode(){
-    try{
-      this.user = await this.authSvc.login();
-      if (this.user) {
-        console.log('user->', this.user.uid);
-        //this.redirectUser(this.user.uid);
-        this.redirectPrueba();
-      }
-    }catch (error){
-      console.log('Error->', error);
-      
-    }
-  }
-
   private redirectUser(user_id:string){
     //redirect -> admin
     if (user_id == 'xqdLNQILCaeJ6NQaaGrfb11FErd2') {
@@ -67,10 +53,6 @@ export class HomeComponent implements OnInit {
     else{
       this.router.navigate(['tabs/lista']);
     }
-  }
-
-  private redirectPrueba(){
-    this.router.navigate(['tabs']);
   }
 
    

@@ -57,7 +57,7 @@ export class MapaComponent implements OnInit {
   }
 
   printMap(){
-    const posision= {lat: this.local.ubicacion._lat, lng: this.local.ubicacion._long}
+    const posision= {lat: this.local.ubicacion.lat, lng: this.local.ubicacion.lng}
     this.latitud=posision.lat;
     this.longitud=posision.lng;
     this.position={

@@ -6,7 +6,10 @@ export interface Local {
     openHours: string;
     OpenDays: string;
     imagen: string;
-    ubicacion:any;
+    ubicacion:{
+        lat:number;
+        lng:number;
+    };
     likes: string [];
     id: string;
     fechaCreacion: Date;
@@ -26,6 +29,10 @@ export interface Sugerencia {
     openHours: string;
     OpenDays: string;
     id: string;
+    ubicacion:{
+        lat:number;
+        lng:number;
+    };
     likes: string [];
     fechaCreacion: Date;
 }
