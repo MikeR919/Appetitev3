@@ -1,47 +1,48 @@
-<ion-list>
-  <ion-item>
-    <ion-thumbnail slot="start">
-      <img src="{{local.imagen}}" class="card-img-top" alt="...">
-    </ion-thumbnail>
-    <ion-label>{{local.Nombre}}</ion-label>
-    <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">
-        <ion-icon name="close-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
-</ion-list>
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="{{local.imagen}}" class="card-img-top" alt="...">
+        </ion-thumbnail>
+        <ion-label>{{local.Nombre}}</ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
 
+  <ion-content fullscreen>
+    <ion-list>
+      <ion-item *ngFor="let comment of comentarios">
+        <ion-avatar slot="start">
+          <img src="{{comment.foto}}">
+        </ion-avatar>
+        <ion-label>
+          <h3>{{comment.autor}}</h3>
+          <p>{{comment.comentario}}</p>
+          <p>{{comment.fecha.seconds*1000 |date :'medium'}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 
+  <ion-footer>
+    <ion-item *ngIf="user$ | async as user">
+      <ion-avatar slot="start">
+        <img src="{{user.photoURL}}">
+      </ion-avatar>
+      <ion-textarea [(ngModel)]="comentario"  placeholder="Inserta un cometario Público"></ion-textarea>
+      <ion-buttons slot="end">
+        <ion-button (click)="comentar()">
+          <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  
+  </ion-footer> 
+</ion-app>
 
-<ion-list>
-  <ion-item *ngFor="let comment of comentarios">
-    <ion-avatar slot="start">
-      <img src="{{comment.foto}}">
-    </ion-avatar>
-    <ion-label>
-      <h3>{{comment.autor}}</h3>
-      <p>{{comment.comentario}}</p>
-      <p>{{comment.fecha.seconds*1000 |date :'medium'}}</p>
-    </ion-label>
-  </ion-item>
-
-</ion-list>
-
-
-
-
-<ion-footer>
-  <ion-item *ngIf="user$ | async as user">
-    <ion-avatar slot="start">
-      <img src="{{user.photoURL}}">
-    </ion-avatar>
-    <ion-textarea [(ngModel)]="comentario"  placeholder="Inserta un cometario Público"></ion-textarea>
-    <ion-buttons slot="end">
-      <ion-button (click)="comentar()">
-        <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
-
-</ion-footer>
