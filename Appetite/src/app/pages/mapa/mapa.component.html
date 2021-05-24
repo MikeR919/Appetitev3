@@ -8,8 +8,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <google-map [center]="position">
+<ion-content fullscreen>
+  <google-map [center]="position" width="100%">
     <map-marker
     [position]="position"
     [label]="label">

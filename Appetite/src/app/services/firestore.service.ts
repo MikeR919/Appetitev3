@@ -48,15 +48,15 @@ export class FirestoreService {
      );
    }
 
-   getCollectionPaginada<tipo>(path: string, limit:number, startAt:any){
+   getCollectionPaginada<tipo>(path: string, limit:number){
     /*if(startAt==null){
       startAt=new Date();
     }*/
     const collection =this.database.collection<tipo>(path, ref => ref
-    .orderBy('fecha','asc')
+    .orderBy('fecha','desc')
     .limit(limit)
-    .startAfter(startAt)
     );
+    return collection.valueChanges();
   }
 
 }

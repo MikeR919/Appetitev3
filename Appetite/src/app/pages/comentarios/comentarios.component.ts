@@ -46,8 +46,12 @@ export class ComentariosComponent implements OnInit {
   }
 
   loadComentarios(){
+    let startAt= null;
+    if (this.comentarios.length){
+      startAt=this.comentarios[this.comentarios.length-1].fecha
+    }
     const path = 'Locales/' + this.local.id + '/comentarios';
-    this.firebase.getCollection<Comentario>(path).subscribe(res => {
+    this.firebase.getCollectionPaginada<Comentario>(path, 200).subscribe (res => {
       if(res.length){
         this.comentarios=res;
       }      
