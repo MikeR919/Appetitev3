@@ -36,7 +36,7 @@ los paquetes necesarios son dependecias de npm, en caso de clonar el proyecto se
 npm install
 ```
 
-##version
+## version
 
 Angular: 12.0.0
 Node: 14.17.0 
