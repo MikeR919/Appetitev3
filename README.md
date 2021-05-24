@@ -31,7 +31,8 @@ La base de datos en no relacional y está montada en firebase
 
 ## paquetes adicionales
 
-los paquetes necesarios son dependecias de npm, en caso de clonar el proyecto se deberá poner el comando ```bash
+los paquetes necesarios son dependecias de npm, en caso de clonar el proyecto se deberá poner el comando
+```bash
 npm install
 ```
 
