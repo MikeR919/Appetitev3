@@ -14,7 +14,7 @@ El objetivo será ayudar a reducir los cierres de locales de comida en todo el p
 
 Se desarrolló una aplicación movil que se pueda usar en Dispositivos Android  y con posibilidad de compilarse para IOS, además de lanzar una aplicación web. 
 
-##Arquitectura 
+## Arquitectura 
 
 La aplicación se desarrolló con tecnología web usando el framewor de javascript Angular y Ionic para poder complilar en dispositivos nativos. 
 
@@ -101,7 +101,7 @@ Las solicitudes pull son bienvenidas. Para cambios importantes, primero abra un 
 
 Asegúrese de actualizar las pruebas según corresponda. 
 
-#RoadMap
+# RoadMap
 
 ## Requerimientos a futuro
 
@@ -110,11 +110,7 @@ Asegúrese de actualizar las pruebas según corresponda.
 -Se podrá interactuar con el mápa
 -Estará disponible en toda el Área metropolitana de Guadalajara
 -compliar para dispositivos ios y android
--Salir a producción  
-
-# Video demostración
-
-https://youtu.be/bDxFtbuuOfk
+-Salir a producción
 
 
 
